@@ -17,6 +17,10 @@ class DigitalProperty:EventProto {
         intelligenceChange = intelli
     }
     
+    convenience init(){
+        self.init(shares:0, money:0, life:0, intelli:0)
+    }
+    
     func description()->String{
         var info:String = ""
         
@@ -97,6 +101,44 @@ func +=(inout ca:CoderAttributes, dp:DigitalProperty)->CoderAttributes{
     return ca
 }
 
+//A wrapper for above.
+func +=(inout ca:CoderAttributes, fe:FieldEvent)->CoderAttributes{
+    ca += fe.event
+    return ca
+}
+
+class RandomEvent:EventProto{
+    init(shares:Int, name:String){
+        event.sharesChange = shares
+        self.name = name
+    }
+    
+    init(money:Int, name:String){
+        event.moneyChange = money
+        self.name = name
+    }
+    
+    init(life:Int, name:String){
+        event.lifeChange = life
+        self.name = name
+    }
+    
+    init(intelli:Int, name:String){
+        event.intelligenceChange = intelli
+        self.name = name
+    }
+    
+    func description()->String{
+        var rv = name
+        rv += ", "
+        rv += event.description()
+        return "\(name), \(event.description())"
+    }
+    
+    var event=DigitalProperty()
+    var name:String
+}
+
 class FieldEvent:EventProto{
     
     init(share:Int, money:Int, life:Int, intelli:Int, name:String){
@@ -117,7 +159,8 @@ class FieldEvent:EventProto{
     //////////////////////////////
     // The controlling view shall deal with '\n'
     func description()->String{
-        var stringText = "你刚才在办公室" + name + ", \n" + event.description()
+        var stringText = "你刚才在办公室" + name + ", \n"
+        stringText += event.description()
         if appendInfos != nil {
             let count = appendInfos?.count
             let offset = Int(arc4random()) % count!
@@ -144,6 +187,16 @@ class SportsEvent:FieldEvent{
     
     init(life:Int, intelli:Int, name:String, appends:[String]){
         super.init(share:0, money:0, life:life, intelli:intelli, name:name)
+        appendInfos = appends
+    }
+}
+
+class McDonaldEvent:FieldEvent{
+    init(life:Int, money:Int, name:String){
+        super.init(share:0, money:money, life:life, intelli:0, name:name)
+    }
+    init(life:Int, money:Int, name:String, appends:[String]){
+        super.init(share:0, money:money, life:life, intelli:0, name:name)
         appendInfos = appends
     }
 }

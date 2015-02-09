@@ -1,14 +1,14 @@
 //
-//  OfficeWorkViewController.swift
+//  McDonaldRestaurantSceneViewController.swift
 //  TheCareer2
 //
-//  Created by baihai on 15/2/6.
+//  Created by baihai on 15/2/7.
 //  Copyright (c) 2015年 haigamehouse. All rights reserved.
 //
 
 import UIKit
 
-class OfficeWorkViewController: UITableViewController {
+class McDonaldRestaurantSceneViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,35 +18,6 @@ class OfficeWorkViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        initOfficeEventItems()
-    }
-    
-    func initOfficeEventItems(){
-        let count = officeEvents.count
-        let realCount = (count / 2) + Int(arc4random()) % (count / 2)
-        var dc = [Int:Bool]()
-        var kickLeft = count - realCount
-        
-        var now:Int = 0
-        while kickLeft > 0 {
-            var next = random() % count
-            if nil == dc[next] {
-                --kickLeft
-                dc[next] = true
-            }
-        }
-        
-        var theArray = [(Int,String)]()
-        for i in 0..<count{
-            var p:(Int,String)?
-            if nil == dc[i] {
-                p = (i, officeEvents[i].name)
-            }
-            if p != nil {
-                theArray.append(p!)
-            }
-        }
-        selectiveEvents = theArray
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,24 +28,22 @@ class OfficeWorkViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        // #warning Potentially incomplete method implementation.
+        // Return the number of sections.
         return 1
     }
-    
-    var selectiveEvents:[(Int, String)]!
-    var events:[OfficeEvent]!
+
+    let foodItems = mcDonaldEvents.map{ (a:McDonaldEvent)->String in return a.name}
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return events.count
-        return selectiveEvents.count
+        // #warning Incomplete method implementation.
+        // Return the number of rows in the section.
+        return foodItems.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("OfficeEventCell", forIndexPath: indexPath) as UITableViewCell
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCellWithIdentifier("McDonaldItemCell", forIndexPath: indexPath) as UITableViewCell
         var row = indexPath.row
-        //cell.detailTextLabel?.text = events[row].name
-        //cell.textLabel?.text =  events[row].name
-        let (index, name) = selectiveEvents[row]
-        cell.textLabel?.text = name
+        cell.textLabel?.text = foodItems[row]
         return cell
     }
 
@@ -113,39 +82,15 @@ class OfficeWorkViewController: UITableViewController {
     }
     */
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
-        //println("Before changes Site 2000A")
-
-        /*
-        if segue.identifier == "WorkPerformed" {
+        if segue.identifier == "OnHamburgerEaten" {
             let cell = sender as UITableViewCell
-            if let workText = cell.textLabel?.text {
-                var offset = find(events.map{(a:OfficeEvent)->String in return a.name}, workText)
-                workPerformed = offset
-                let msg = officeEvents[offset!].description()
-            }
-        }*/
-        
-        if segue.identifier == "WorkPerformed" {
-            let cell = sender as UITableViewCell
-            if let workText = cell.textLabel?.text {
-
-                /*
-                //method one
-                for (offset, text) in selectiveEvents{
-                    if text == workText {
-                        workPerformed = offset
-                        break
-                    }
-                }
-                */
-                workPerformed = selectiveEvents.filter{ $0.1 == workText }[0].0
-            }
+            let text = cell.textLabel?.text
+            foodSelected = find(foodItems, text!)
         }
     }
     
-    var workPerformed:Int?
+    var foodSelected:Int?
 }

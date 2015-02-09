@@ -122,11 +122,20 @@ class PlayerInfoViewController: UITableViewController {
         genderTypeLabel.text = MasterPlayer.gender.description()
     }
     
+    @IBAction func onHobbySelected(segue:UIStoryboardSegue, sender:AnyObject?){
+        let hobbyView = segue.sourceViewController as HobbyViewController
+        println("Hobby selected done")
+        if let h = hobbyView.hobby {
+            hobbyLabel.text = h
+        }
+    }
+    
     @IBAction func onClickStartingGame(sender: UIButton) {
         UIAlertView(title:"游戏开始", message:"做好觉悟吧 少年!", delegate:nil
             , cancelButtonTitle:"知道了").show()
     }
 
+    @IBOutlet weak var hobbyLabel: UILabel!
     @IBOutlet weak var careerTypeLabel: UILabel!
     @IBOutlet weak var genderTypeLabel: UILabel!
 }

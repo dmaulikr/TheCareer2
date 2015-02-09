@@ -60,5 +60,54 @@ let officeEvents = [
             "老板今天打了发胶, 我们应该配合脸红一下",
             "老板没有拉拉链, 但这绝对不是给你什么机会"
         ]
+    ),
+    OfficeEvent(share:0, money:0, life:0, intelli:10, name:"偷看美女",
+        appends:[
+            "你知道我在偷看谁吗?",
+            "我知道我在干什么吗?",
+            "你看到了老板某种形容词的眼神",
+            "哈喇子快流出来了",
+            "这就像是毒瘾一般",
+            "看吧. 看吧少年. ",
+            "醒醒, 别做白日梦了",
+        ]
+    ),
+    OfficeEvent(share:0, money:0, life:-5, intelli:5, name:"喝咖啡",
+        appends:[
+            "还是旧街场咖啡好喝",
+            "雀巢咖啡不好喝, 711免费送",
+            "精神了..."
+        ]
+    ),
+    OfficeEvent(share:0, money:0, life:-15, intelli:0, name:"吹口哨",
+        appends:[
+            "怎么吹口哨也成了自残了"
+        ]
+    ),
+    OfficeEvent(share:0, money:-200, life:15, intelli:0, name:"睡觉",
+        appends:[
+            "老板摇醒了你, 并且给你记了一笔"
+        ]
+    ),
+    OfficeEvent(share:0, money:-800, life:0, intelli:20, name:"研究架构",
+        appends:[
+            "老板认为你今天什么都没有干.",
+            "老板已经超神, 你却在这儿看无聊的东西!"
+        ]
+    ),
+    OfficeEvent(share:0, money:-100, life:0, intelli:1, name:"逛淘宝",
+        appends:[
+            "你突然觉得想回家开淘宝店了",
+            "再买就剁手",
+            "买买买",
+            "买个球, 买了个球"
+        ]
+    ),
+    OfficeEvent(share:0, money:-400, life:0, intelli:10, name:"看技术书籍",
+        appends:[
+            "再一次迎来老板恶意的眼神",
+            "\"还看什么书, 难道你在学校里没有学过吗?\"",
+            "心情非常愉悦"
+        ]
     )
 ]

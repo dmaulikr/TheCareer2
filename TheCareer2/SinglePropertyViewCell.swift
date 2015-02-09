@@ -29,7 +29,7 @@ class SinglePropertyViewCell: UITableViewCell {
         rightView.text = String(value)
     }
     
-    func sync(){
+    func sync() {
         initByTag()
     }
     
@@ -40,9 +40,11 @@ class SinglePropertyViewCell: UITableViewCell {
         case 202:
             setContent("智商", value:MasterPlayer.coder.intelligence)
         case 203:
-            setContent("天朝币", value:MasterPlayer.coder.money)
+            setContent("人民币", value:MasterPlayer.coder.money)
         case 204:
             setContent("股份", value:MasterPlayer.coder.shares)
+        case 205:
+            setContent("天数剩余", value:MasterPlayer.daysLeft)
         default:
             ()
         }

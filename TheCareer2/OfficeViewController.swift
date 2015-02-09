@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OfficeViewController: UITableViewController {
+class OfficeViewController: UITableViewController, UIAlertViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +18,7 @@ class OfficeViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,6 +29,7 @@ class OfficeViewController: UITableViewController {
     // MARK: - Table view data source
 
     //They do count
+    /*
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
@@ -43,7 +45,7 @@ class OfficeViewController: UITableViewController {
             return 4
         }
         return 0
-    }
+    }*/
 
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -121,7 +123,7 @@ class OfficeViewController: UITableViewController {
     */
     
     func updateProperties(){
-        let cells = [propertyCell_0, propertyCell_1, propertyCell_2, propertyCell_3]
+        let cells = [propertyCell_0, propertyCell_1, propertyCell_2, propertyCell_3, propertyCell_4]
         for cell in cells{
             cell.sync()
         }
@@ -132,31 +134,100 @@ class OfficeViewController: UITableViewController {
         //println("OK, back from work performance")
         let workPermView = segue.sourceViewController as OfficeWorkViewController
         if let performed = workPermView.workPerformed {
-            println("You performed one case **********************")
+            //println("You performed one case **********************")
             let ev = officeEvents[performed]
             println(ev.name)
             MasterPlayer.receiveWork(performed)
+            postProcess(ev)
             updateProperties()
-            promptPlayer(ev)
         }
     }
     
     @IBAction func onSportsPerformed(segue:UIStoryboardSegue, sender:AnyObject?){
         let sportsView = segue.sourceViewController as SportsFieldViewController
         if let sportsIndex = sportsView.sportsSelected {
-            println("You perfomed one sports *******")
+            //println("You perfomed one sports *******")
             let ev = sportsEvents[sportsIndex]
             println(ev.name)
             MasterPlayer.receiveSports(sportsIndex)
+            postProcess(ev)
             updateProperties()
-            promptPlayer(ev)
+        }
+    }
+    
+    @IBAction func onMcDonaldPerformed(segue:UIStoryboardSegue, sender:AnyObject?){
+        let mcView = segue.sourceViewController as McDonaldRestaurantSceneViewController
+        if let foodIndex = mcView.foodSelected{
+            let ev = mcDonaldEvents[foodIndex]
+            println(ev.name)
+            MasterPlayer.receiveFood(foodIndex)
+            postProcess(ev)
+            updateProperties()
+        }
+    }
+    
+    func postProcess(event:EventProto){
+        pendingEvent = genRandomEvent()
+        promptPlayer(event)
+        
+        ++actionTakenCount
+        if actionTakenCount >= ActionPerDay {
+            actionTakenCount = 0
+            if MasterPlayer.decreaseDays() {
+                endOfGame = true
+            }
+        }
+    }
+    
+    func checkGame(){
+        if MasterPlayer.isOutOfDays {
+            var msg = "工作完毕, 你带着\(MasterPlayer.coder.money)元回家了"
+            var aView = UIAlertView(title:"时间到",message:msg, delegate:self, cancelButtonTitle:"好")
+            aView.tag = TagGameOver
+            aView.show()
         }
     }
     
     func promptPlayer(event:EventProto){
-        UIAlertView(title:"完成", message:event.description(), delegate:nil, cancelButtonTitle:"好").show()
+        var aView = UIAlertView(title:"完成", message:event.description(), delegate:self, cancelButtonTitle:"好")
+        aView.tag = TagRoutine
+        aView.show()
     }
     
+    func promptRandomEvent(){
+        if pendingEvent != nil {
+            MasterPlayer.receiveEvent(pendingEvent!)
+            updateProperties()
+            var aView = UIAlertView(title:"突发", message:pendingEvent?.description(), delegate:self, cancelButtonTitle:"好")
+            aView.tag = TagAftermath
+            aView.show()
+            pendingEvent = nil
+            return  // OVER
+        }
+        
+        checkGame()
+    }
+    
+    //UIAlertViewDelegate>>>
+//    func alertViewCancel(alertView: UIAlertView){
+//        println("Yes")
+//    }
+    
+    func alertView(alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int){
+        println("Dismiss with index \(buttonIndex), tag \(alertView.tag)")
+            // Only one button, the default one(CANCEL)
+        promptRandomEvent()
+    }
+    
+    @IBAction func onClickDaTu(sender: UIButton) {
+        UIAlertView(title:"敬请期待", message:"尚未竣工", delegate:nil, cancelButtonTitle:"好").show()
+    }
+    
+    var actionTakenCount:Int = 0
+    var pendingEvent:RandomEvent?
+    var endOfGame = false
+    
+    @IBOutlet weak var propertyCell_4: SinglePropertyViewCell!
     @IBOutlet weak var propertyCell_3: SinglePropertyViewCell!
     @IBOutlet weak var propertyCell_2: SinglePropertyViewCell!
     @IBOutlet weak var propertyCell_1: SinglePropertyViewCell!

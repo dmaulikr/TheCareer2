@@ -106,6 +106,39 @@
             </objects>
             <point key="canvasLocation" x="1455" y="-956"/>
         </scene>
+        <!--爱好-->
+        <scene sceneID="4zq-nL-Fm8">
+            <objects>
+                <tableViewController id="rcA-cn-N8y" customClass="HobbyViewController" customModule="TheCareer2" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="YQo-OF-W1u">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HobbyViewCell" id="FV6-ni-cA6">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FV6-ni-cA6" id="4j1-kb-u2N">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="XMK-xn-g5O" kind="unwind" identifier="SaveHobbyForMe" unwindAction="onHobbySelected:sender:" id="n2b-nd-8Bb"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="rcA-cn-N8y" id="iD2-0i-qGl"/>
+                            <outlet property="delegate" destination="rcA-cn-N8y" id="xOP-ic-l8e"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="爱好" prompt="作为码农必须有一样爱好" id="n13-nF-wAU">
+                        <barButtonItem key="backBarButtonItem" title="搞定" id="p32-1a-zVo"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kxL-bR-sGA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="XMK-xn-g5O" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1845" y="-956"/>
+        </scene>
         <!--职业信息登记-->
         <scene sceneID="OT8-Jp-a3w">
             <objects>
@@ -119,12 +152,12 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" id="NYP-oO-ZdO">
-                                    <rect key="frame" x="8" y="90" width="304" height="154"/>
+                                    <rect key="frame" x="100" y="145" width="120" height="45"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                     <size key="titleShadowOffset" width="-1" height="-1"/>
-                                    <state key="normal" title="开始上班!">
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <state key="normal" title="开始打工!">
+                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                     <connections>
                                         <action selector="onClickStartingGame:" destination="Bil-IX-3gU" eventType="touchUpInside" id="K0u-gY-NgP"/>
@@ -181,13 +214,41 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="男" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gxu-Gl-FaD">
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="amk-em-qJL" kind="push" id="Cby-o0-Pko"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="爱好" id="QrA-3m-iUL">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Ew8-6G-Kp1" detailTextLabel="kNC-uq-Kbc" style="IBUITableViewCellStyleValue1" id="3y7-us-GZ1">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3y7-us-GZ1" id="Stl-C1-lb9">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="选择爱好" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ew8-6G-Kp1">
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="睡觉" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kNC-uq-Kbc">
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="rcA-cn-N8y" kind="push" id="NEl-lh-493"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -202,6 +263,7 @@
                     <connections>
                         <outlet property="careerTypeLabel" destination="dnG-0o-Zab" id="bU2-IU-Ny1"/>
                         <outlet property="genderTypeLabel" destination="gxu-Gl-FaD" id="tWj-5y-i2a"/>
+                        <outlet property="hobbyLabel" destination="kNC-uq-Kbc" id="ysC-G5-OZE"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cxy-Kt-XsB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -273,7 +335,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xhb-IP-dHh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.55484544859999996" green="1" blue="0.69781515189999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="5A7-Mo-t97" kind="relationship" relationship="rootViewController" id="A1o-8p-Ug9"/>
@@ -414,6 +476,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="AF8-zj-Ebw" kind="push" id="1dS-oU-wRP"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="yRx-5V-Wfg">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -438,13 +503,23 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VU1-zr-BPx" id="d7q-H0-LPx">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="达图科技" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="drq-Og-f7O">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="drq-Og-f7O">
                                                     <rect key="frame" x="8" y="11" width="304" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="g6d-Az-JzZ">
+                                                    <rect key="frame" x="76" y="8" width="169" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="大图网络">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="onClickDaTu:" destination="uSx-ma-wZF" eventType="touchUpInside" id="x7W-F5-2mm"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -532,6 +607,26 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell tag="205" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PropertyCell" textLabel="5CK-Iu-mtQ" detailTextLabel="vUr-uO-IVE" style="IBUITableViewCellStyleValue1" id="sY6-ES-FMr" customClass="SinglePropertyViewCell" customModule="TheCareer2" customModuleProvider="target">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sY6-ES-FMr" id="vmT-ah-fVC">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" tag="101" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5CK-Iu-mtQ">
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" tag="102" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vUr-uO-IVE">
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -546,6 +641,7 @@
                         <outlet property="propertyCell_1" destination="hbd-fe-4vF" id="IHo-Tj-Ub9"/>
                         <outlet property="propertyCell_2" destination="2ua-fw-5pG" id="tqU-Qe-aVa"/>
                         <outlet property="propertyCell_3" destination="GEm-qa-Gn4" id="D0B-dY-RDf"/>
+                        <outlet property="propertyCell_4" destination="sY6-ES-FMr" id="y7W-t7-HQE"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1O2-1H-4Bx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -590,6 +686,37 @@
                 <exit id="VlP-3x-inl" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2321" y="-320"/>
+        </scene>
+        <!--B区麦当劳-->
+        <scene sceneID="UWm-sj-c2H">
+            <objects>
+                <tableViewController id="AF8-zj-Ebw" customClass="McDonaldRestaurantSceneViewController" customModule="TheCareer2" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="TUg-FY-G8M">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="McDonaldItemCell" id="JYA-QI-Zlt">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JYA-QI-Zlt" id="t5D-vj-xCb">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="q4i-sf-1tV" kind="unwind" identifier="OnHamburgerEaten" unwindAction="onMcDonaldPerformed:sender:" id="2C5-Sv-0Ed"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="AF8-zj-Ebw" id="Y4g-eR-2dz"/>
+                            <outlet property="delegate" destination="AF8-zj-Ebw" id="BKe-Gp-clR"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="B区麦当劳" id="aff-sY-qaX"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4s5-7K-gDM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="q4i-sf-1tV" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2765" y="-320"/>
         </scene>
         <!--大楼间羽毛球场-->
         <scene sceneID="dFZ-2D-RCm">

@@ -12,6 +12,7 @@ protocol EnumType{
     func description()->String
 }
 
+
 enum Career:Int, EnumType{
     case Coder = 0
     case Programmer
@@ -120,11 +121,34 @@ class Player {
         assert( sportsNo >= 0 && sportsNo < sportsEvents.count, "Must be within this range")
         coder += sportsEvents[sportsNo].event
     }
+    
+    func receiveFood(foodNo:Int){
+        assert( foodNo >= 0 && foodNo < mcDonaldEvents.count, "must be within the range")
+        coder += mcDonaldEvents[foodNo].event
+    }
+    
+    func receiveEvent(ev:FieldEvent){
+        coder += ev.event
+    }
+    
+    func receiveEvent(re:RandomEvent){
+        coder += re.event
+    }
+    
+    func decreaseDays()->Bool{
+        --daysLeft
+        return daysLeft <= 0
+    }
+    
+    var isOutOfDays:Bool {
+        return daysLeft <= 0
+    }
 
     var career:Career = .Coder  // Always the basic
     var gender:Gender = .Male
     
     var coder = CoderAttributes()
+    var daysLeft = TotalProgramDays
 }
 
 // The Singleton

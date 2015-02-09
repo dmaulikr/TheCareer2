@@ -13,6 +13,12 @@
 		DB0684E91A83B4260088B600 /* GenderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0684E81A83B4260088B600 /* GenderViewCell.swift */; };
 		DB0684EB1A83D3930088B600 /* PickCareerTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0684EA1A83D3930088B600 /* PickCareerTypeViewController.swift */; };
 		DB0684ED1A83D9A20088B600 /* PickGenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0684EC1A83D9A20088B600 /* PickGenderViewController.swift */; };
+		DB97B39C1A8648F5004C6198 /* GameConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB97B39B1A8648F5004C6198 /* GameConfig.swift */; };
+		DBA8078F1A85FF6200EB10C5 /* HobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA8078E1A85FF6200EB10C5 /* HobbyViewController.swift */; };
+		DBA807911A8602B800EB10C5 /* McDonaldRestaurantSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA807901A8602B800EB10C5 /* McDonaldRestaurantSceneViewController.swift */; };
+		DBA807931A86044200EB10C5 /* McDonaldEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA807921A86044200EB10C5 /* McDonaldEvents.swift */; };
+		DBA807961A86115500EB10C5 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA807951A86115500EB10C5 /* Utils.swift */; };
+		DBA807981A86119100EB10C5 /* RandomEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA807971A86119100EB10C5 /* RandomEvents.swift */; };
 		DBB70EEA1A8341B900132A3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB70EE91A8341B900132A3D /* AppDelegate.swift */; };
 		DBB70EEF1A8341B900132A3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBB70EED1A8341B900132A3D /* Main.storyboard */; };
 		DBB70EF11A8341B900132A3D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBB70EF01A8341B900132A3D /* Images.xcassets */; };
@@ -48,6 +54,12 @@
 		DB0684E81A83B4260088B600 /* GenderViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderViewCell.swift; sourceTree = "<group>"; };
 		DB0684EA1A83D3930088B600 /* PickCareerTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickCareerTypeViewController.swift; sourceTree = "<group>"; };
 		DB0684EC1A83D9A20088B600 /* PickGenderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickGenderViewController.swift; sourceTree = "<group>"; };
+		DB97B39B1A8648F5004C6198 /* GameConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameConfig.swift; sourceTree = "<group>"; };
+		DBA8078E1A85FF6200EB10C5 /* HobbyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HobbyViewController.swift; sourceTree = "<group>"; };
+		DBA807901A8602B800EB10C5 /* McDonaldRestaurantSceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = McDonaldRestaurantSceneViewController.swift; sourceTree = "<group>"; };
+		DBA807921A86044200EB10C5 /* McDonaldEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = McDonaldEvents.swift; path = Model/McDonaldEvents.swift; sourceTree = "<group>"; };
+		DBA807951A86115500EB10C5 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = Model/Utils.swift; sourceTree = "<group>"; };
+		DBA807971A86119100EB10C5 /* RandomEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RandomEvents.swift; path = Model/RandomEvents.swift; sourceTree = "<group>"; };
 		DBB70EE41A8341B900132A3D /* TheCareer2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheCareer2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBB70EE81A8341B900132A3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBB70EE91A8341B900132A3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +100,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DBA8078D1A85FF4F00EB10C5 /* InfoScene */ = {
+			isa = PBXGroup;
+			children = (
+				DB0684EC1A83D9A20088B600 /* PickGenderViewController.swift */,
+				DB0684EA1A83D3930088B600 /* PickCareerTypeViewController.swift */,
+				DBA8078E1A85FF6200EB10C5 /* HobbyViewController.swift */,
+			);
+			name = InfoScene;
+			sourceTree = "<group>";
+		};
+		DBA807941A86058600EB10C5 /* MasterScene */ = {
+			isa = PBXGroup;
+			children = (
+				DB0684DC1A8386E60088B600 /* PlayerInfoViewController.swift */,
+				DBC7F4E71A849F2800BF46D6 /* OfficeViewController.swift */,
+			);
+			name = MasterScene;
+			sourceTree = "<group>";
+		};
 		DBB70EDB1A8341B900132A3D = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +192,7 @@
 				DB0684E21A83AB9F0088B600 /* Player.swift */,
 				DBC7F4E91A849F3D00BF46D6 /* GameEvents.swift */,
 				DBC7F4F31A84C05700BF46D6 /* EventProto.swift */,
+				DBA807951A86115500EB10C5 /* Utils.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -179,13 +211,11 @@
 		DBC7F4F21A84BE0700BF46D6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DBA807941A86058600EB10C5 /* MasterScene */,
+				DBA8078D1A85FF4F00EB10C5 /* InfoScene */,
 				DBC7F4FA1A85054100BF46D6 /* Scene */,
 				DBB70F0C1A8348BB00132A3D /* MyRootViewController.swift */,
 				DBB70F171A83630600132A3D /* SomethingViewController.swift */,
-				DB0684DC1A8386E60088B600 /* PlayerInfoViewController.swift */,
-				DB0684EA1A83D3930088B600 /* PickCareerTypeViewController.swift */,
-				DB0684EC1A83D9A20088B600 /* PickGenderViewController.swift */,
-				DBC7F4E71A849F2800BF46D6 /* OfficeViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -195,6 +225,9 @@
 			children = (
 				DBC7F4F51A84FD4A00BF46D6 /* OfficeEvents.swift */,
 				DBC7F4F81A85005800BF46D6 /* SportsEvent.swift */,
+				DBA807921A86044200EB10C5 /* McDonaldEvents.swift */,
+				DBA807971A86119100EB10C5 /* RandomEvents.swift */,
+				DB97B39B1A8648F5004C6198 /* GameConfig.swift */,
 			);
 			name = Config;
 			sourceTree = "<group>";
@@ -204,6 +237,7 @@
 			children = (
 				DBC7F4EF1A84B1EE00BF46D6 /* OfficeWorkViewController.swift */,
 				DBC7F4FB1A85056100BF46D6 /* SportsFieldViewController.swift */,
+				DBA807901A8602B800EB10C5 /* McDonaldRestaurantSceneViewController.swift */,
 			);
 			name = Scene;
 			sourceTree = "<group>";
@@ -308,23 +342,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBA8078F1A85FF6200EB10C5 /* HobbyViewController.swift in Sources */,
 				DBC7F4EA1A849F3D00BF46D6 /* GameEvents.swift in Sources */,
 				DBC7F4F41A84C05700BF46D6 /* EventProto.swift in Sources */,
 				DBC7F4E81A849F2800BF46D6 /* OfficeViewController.swift in Sources */,
 				DBB70F181A83630600132A3D /* SomethingViewController.swift in Sources */,
+				DBA807931A86044200EB10C5 /* McDonaldEvents.swift in Sources */,
 				DBC7F4F01A84B1EE00BF46D6 /* OfficeWorkViewController.swift in Sources */,
 				DB0684EB1A83D3930088B600 /* PickCareerTypeViewController.swift in Sources */,
 				DBC7F4F61A84FD4A00BF46D6 /* OfficeEvents.swift in Sources */,
+				DBA807961A86115500EB10C5 /* Utils.swift in Sources */,
 				DB0684DD1A8386E60088B600 /* PlayerInfoViewController.swift in Sources */,
 				DB0684E11A83AA6E0088B600 /* CareerTypeViewCell.swift in Sources */,
+				DBA807911A8602B800EB10C5 /* McDonaldRestaurantSceneViewController.swift in Sources */,
 				DB0684E31A83AB9F0088B600 /* Player.swift in Sources */,
 				DBC7F4F91A85005800BF46D6 /* SportsEvent.swift in Sources */,
 				DBB70F141A834B2800132A3D /* MenuViewCell.swift in Sources */,
 				DBC7F4FC1A85056100BF46D6 /* SportsFieldViewController.swift in Sources */,
 				DBB70EEA1A8341B900132A3D /* AppDelegate.swift in Sources */,
 				DB0684E91A83B4260088B600 /* GenderViewCell.swift in Sources */,
+				DB97B39C1A8648F5004C6198 /* GameConfig.swift in Sources */,
 				DBC7F4EE1A84A96D00BF46D6 /* SinglePropertyViewCell.swift in Sources */,
 				DBB70F0D1A8348BB00132A3D /* MyRootViewController.swift in Sources */,
+				DBA807981A86119100EB10C5 /* RandomEvents.swift in Sources */,
 				DB0684ED1A83D9A20088B600 /* PickGenderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
